@@ -1,4 +1,4 @@
-# CC-Minecraft but it uses redstone to control it
+# CC:Minecraft but it uses redstone to control it
 
 This is [CC:Minecraft](https://github.com/CC-Minecraft/CC-Minecraft) but it uses redstone to control it.
 
@@ -18,3 +18,6 @@ local turnSpeed = 180/5
 ```
 
 You will need to run `wget run https://pinestore.cc/d/2` yourself.
+
+Here's a picture of it in action:
+![CC-Minecraft](https://ellinet13.github.io/READMEAssets/CCMinecraftMachine.png)
