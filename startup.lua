@@ -160,7 +160,7 @@ end
 print("Device powered off. Turn on the lever on the front of the computer to restart.")
 
 while not redstone.getInput("front") do
-    sleep(0.5)
+    sleep(2)
 end
 
 os.reboot()
