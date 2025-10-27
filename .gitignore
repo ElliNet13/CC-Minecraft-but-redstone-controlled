@@ -1,0 +1,12 @@
+# Ignore all files
+*
+
+# Allow these files
+!.gitignore
+!README.md
+!startup.lua
+
+
+
+# Please download CC:Minecraft from the official source:
+# https://pinestore.cc/projects/2/cc-minecraft
