@@ -76,6 +76,8 @@ local function start()
     parallel.waitForAny(function()
         while true do
             local event, side, x, y = os.pullEvent()
+            
+            -- Monitor touches
             if event == "monitor_touch" then
                 local button
                 if leftRightClickRelay.getInput("front") then
@@ -85,36 +87,53 @@ local function start()
                 end
                 os.queueEvent("mouse_click", button, x, y)
             end
+
+            -- Redstone/relay input
             if event == "redstone" then
                 -- Power button
                 if not redstone.getInput("front") then
                     return
                 end
 
-                -- Move
+                -- Move relays
                 for side, key in pairs(relayKeysMove) do
                     if moveRelay.getInput(side) and not previousStateMove[side] then
                         os.queueEvent("key", key)
+                        -- Queue char event if it's a printable character
+                        local char = keys.getName(key)
+                        if char and #char == 1 then
+                            os.queueEvent("char", char)
+                        end
                         previousStateMove[side] = true
                     elseif not moveRelay.getInput(side) then
                         os.queueEvent("key_up", key)
                         previousStateMove[side] = false
                     end
                 end
-                -- Camera
+
+                -- Camera relays
                 for side, key in pairs(relayKeysCamera) do
                     if cameraRelay.getInput(side) and not previousStateCamera[side] then
                         os.queueEvent("key", key)
+                        local char = keys.getName(key)
+                        if char and #char == 1 then
+                            os.queueEvent("char", char)
+                        end
                         previousStateCamera[side] = true
                     elseif not cameraRelay.getInput(side) then
                         os.queueEvent("key_up", key)
                         previousStateCamera[side] = false
                     end
                 end
-                -- Up down
+
+                -- Up/down relays
                 for side, key in pairs(relayKeysUpDown) do
                     if upDownRelay.getInput(side) and not previousStateUpDown[side] then
                         os.queueEvent("key", key)
+                        local char = keys.getName(key)
+                        if char and #char == 1 then
+                            os.queueEvent("char", char)
+                        end
                         previousStateUpDown[side] = true
                     elseif not upDownRelay.getInput(side) then
                         os.queueEvent("key_up", key)
