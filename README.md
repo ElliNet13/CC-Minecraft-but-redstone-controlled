@@ -19,5 +19,9 @@ local turnSpeed = 180/5
 
 You will need to run `wget run https://pinestore.cc/d/2` yourself.
 
-Here's a picture of it in action:
-![CC-Minecraft](https://ellinet13.github.io/READMEAssets/CCMinecraftMachine.png)
+Here's some pictures of it in action:
+![Main screeen](https://ellinet13.github.io/READMEAssets/CC-Minecraft-Controller/CCMinecraftMachine.png)
+![Turned off](https://ellinet13.github.io/READMEAssets/CC-Minecraft-Controller/poweroff.png)
+![World selector screen](https://ellinet13.github.io/READMEAssets/CC-Minecraft-Controller/worldselect.png)
+![In game](https://ellinet13.github.io/READMEAssets/CC-Minecraft-Controller/ingame.png)
+![The back](https://ellinet13.github.io/READMEAssets/CC-Minecraft-Controller/back.png)
