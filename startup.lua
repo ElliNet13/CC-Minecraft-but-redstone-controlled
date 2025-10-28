@@ -2,6 +2,7 @@ term.clear()
 term.setCursorPos(1,1)
 print("ElliNet13's Controller for CC:Minecraft")
 print("Orginal by Xella: wget run https://pinestore.cc/projects/2/cc-minecraft")
+print("Github Repo for the controller: https://github.com/ElliNet13/CC-Minecraft-but-redstone-controlled")
 
 local mon = peripheral.find("monitor")
 local moveRelay = peripheral.wrap("redstone_relay_4")
