@@ -10,6 +10,8 @@ local cameraRelay = peripheral.wrap("redstone_relay_5")
 local upDownRelay = peripheral.wrap("redstone_relay_6")
 local leftRightClickRelay = peripheral.wrap("redstone_relay_7")
 
+math.randomseed(os.epoch("utc"))
+
 if mon then
     mon.clear()
     term.redirect(mon)
@@ -153,14 +155,35 @@ if redstone.getInput("front") then
 end
 
 sleep(2)
-if not redstone.getInput("front") then
-    term.clear()
-    term.setCursorPos(1,1)
+
+local myColors = {}
+for name, value in pairs(colors) do
+    if type(value) == "number" then
+        table.insert(myColors, value)
+    end
 end
 
-print("Device powered off. Turn on the lever on the front of the computer to restart.")
+local screensaverTexts = {
+    "Controller by ElliNet13",
+    "Powered off. Flip the lever to restart.",
+    "Waiting for power...",
+    "CC:Minecraft Controller",
+    "Press the lever to continue.",
+    "CC:Minecraft made by Xella",
+    "CC:Minecraft is on Pinestore!"
+}
+
+term.setBackgroundColor(colors.brown)
 
 while not redstone.getInput("front") do
+    local x, y = term.getSize()
+    term.clear()
+    term.setCursorPos(1, 1)
+    print("Device powered off. Turn on the lever on the front of the computer to restart.")
+    -- Do a "screen saver" effect by updating every 2 seconds
+    term.setCursorPos(math.random(1, x), math.random(2, y))
+    term.setTextColor(myColors[math.random(1, #myColors)])
+    term.write(screensaverTexts[math.random(1, #screensaverTexts)])
     sleep(2)
 end
 
